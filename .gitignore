@@ -20,3 +20,4 @@ venv/
 #*.bclicense
 #*.flf
 #TestResults.xml
+.env
