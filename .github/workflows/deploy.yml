@@ -1,0 +1,22 @@
+name: Deploy BipdeepAI
+on:
+  push:
+    branches:
+      - main
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Deploy BipdeepAI
+        env:
+          APP_ID: ${{ secrets.APP_ID }} 
+        run: |
+          mkdir -p /github/home/src/utils/
+          echo ${{ secrets.PRIVATE_KEY }} | base64 --decode > /github/home/src/utils/private-key.pem
+          python -m pip install pygithub requests
+          python -c "
+            import api_utils
+            print(api_utils.deploy_bipdeepai().json())
+          "
