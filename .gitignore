@@ -21,3 +21,4 @@ venv/
 #*.flf
 #TestResults.xml
 .env
+.env
