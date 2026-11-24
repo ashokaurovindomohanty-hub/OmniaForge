@@ -15,7 +15,3 @@ def generate(prompt: str = "hello", x_api_key: str = Header(None)):
         return {"output": chat.choices[0].message.content}
     except Exception as e:
         return {"error": str(e), "trace": traceback.format_exc()[:800]}
-
-!git add app.py
-!git commit -m "fix 500 debug"
-!git push https://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@github.com/ashokaurovindomohanty-hub/OmniaForge.git main
