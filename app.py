@@ -11,7 +11,7 @@ def generate(prompt: str = "hello", x_api_key: str = Header(None)):
         raise HTTPException(status_code=401, detail="Invalid API Key")
     try:
         client = Groq(api_key=os.getenv("GROQ_API_KEY"))
-        chat = client.chat.completions.create(model="llama-3.1-8b-instant", messages=[{"role":"user","content": prompt}])
+        chat = client.chat.completions.create(model="llama-3.3-70b-versatile", messages=[{"role":"user","content": prompt}])
         return {"output": chat.choices[0].message.content}
     except Exception as e:
         return {"error": str(e), "trace": traceback.format_exc()[:800]}
