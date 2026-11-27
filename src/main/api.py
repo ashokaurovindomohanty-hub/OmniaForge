@@ -2,7 +2,7 @@ from fastapi import FastAPI, Header, HTTPException
 import os
 from groq import Groq
 app = FastAPI()
-MY_KEY = "omnia-sk-123"
+MY_KEY = os.getenv("HEDRA_API_KEY")
 @app.get("/")
 def home(): return {"status":"OmniaForge live - auth ready"}
 @app.post("/generate")
