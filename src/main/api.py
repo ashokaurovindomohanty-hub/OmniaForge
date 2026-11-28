@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import os
 from groq import Groq
 app = FastAPI()
-app.add_middleware(CORSMiddleware, allow_origins=["https://omnia-ai-phi.vercel.app"], allow_methods=["*"], allow_headers=["*"])
+app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"])
 MY_KEY = os.getenv("HEDRA_API_KEY")
 @app.get("/")
 def home():
